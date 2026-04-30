@@ -7,7 +7,6 @@ for line in f.readlines():
 f.close()
 grid = np.array(grid)
 gy, gx = grid.shape
-print(gy, gx)
 
 pos_y, pos_x = np.where(grid == "^")
 pos_y = pos_y[0]
