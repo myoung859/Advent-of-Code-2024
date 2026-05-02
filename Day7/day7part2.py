@@ -10,12 +10,15 @@ for line in f.readlines():
     for ops in itertools.product(("+", "*", "||"), repeat=len(test_nums) - 1):
         result = test_nums[0]
         for i in range(0, len(ops)):
-            if ops[i] == "+":
-                result += test_nums[i + 1]
-            elif ops[i] == "*":
-                result *= test_nums[i + 1]
-            elif ops[i] == "||":
-                result = int(str(result) + str(test_nums[i + 1]))
+            match ops[i]:
+                case "+":
+                    result += test_nums[i + 1]
+                case "*":
+                    result *= test_nums[i + 1]
+                case "||":
+                    result = int(str(result) + str(test_nums[i + 1]))
+            if result > target:
+                break
         if result == target:
             total_cal += target
             break
